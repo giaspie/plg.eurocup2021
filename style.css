@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'Bainsley_Bold';
+    src: url('/eurocup2021-plg/font/Bainsley_Bold.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    margin: 0;
+}
+header{
+    margin: 0;
+    height: 150px; 
+    background-image: url("/eurocup2021-plg/images/euro.jpg");
+}
+#logoEuro{
+    position: relative;
+    left: 20px;
+    top: 30px;
+}
+/* #textEuro{
+    position: relative;
+    left: 33%;
+    top: 20px;
+} */
+#centerTextEuro{
+    position: absolute;
+    top: 15px;
+    width: 100%;
+    text-align: center;
+}
+nav{
+    display: flex;
+    justify-content: space-around;
+    font-family: 'Bainsley_Bold', Arial, sans-serif;
+    color: white;
+    font-size: 18px;
+    background-color: rgb(12, 187, 211);
+    border-top: 4px groove rgb(12, 187, 211);
+    border-bottom: 4px ridge rgb(12, 187, 211);
+}
+#classement:hover, #buteurs:hover, #passeurs:hover{
+    color: black;
+}
+
+.team{
+    display: flex;
+    align-items: center;
+}
+.flag{
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+}
+
