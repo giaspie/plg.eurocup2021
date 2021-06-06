@@ -11,23 +11,28 @@ header{
     margin: 0;
     height: 150px; 
     background-image: url("/eurocup2021-plg/images/euro.jpg");
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 #logoEuro{
-    position: relative;
+    margin-left: 20px;
+    /* position: relative;
     left: 20px;
-    top: 30px;
+    top: 30px; */
 }
-/* #textEuro{
-    position: relative;
-    left: 33%;
-    top: 20px;
-} */
-#centerTextEuro{
+#APIcalls{
+    margin-right: 20px;
+    font-family: 'Bainsley_Bold', Arial, sans-serif;
+    color: white;
+    font-size: 28px;
+}
+/* #centerTextEuro{
     position: absolute;
     top: 15px;
     width: 100%;
     text-align: center;
-}
+} */
 nav{
     display: flex;
     justify-content: space-around;
@@ -45,10 +50,40 @@ nav{
 .team{
     display: flex;
     align-items: center;
+    margin: 10px;
 }
 .flag{
-    height: 30px;
-    width: 30px;
-    border-radius: 20px;
+    margin-right: 5px;
 }
-
+.flag{
+    height: 25px;
+    width: 25px;
+    border-radius: 10px;
+}
+#groupStage{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.group{
+    height: 210px;
+    width: 350px;
+    margin: 10px;
+    font-family: 'Bainsley_Bold', Arial, sans-serif;
+    background-color: rgb(250, 250, 250);
+    border-radius: 20px;
+    overflow: hidden;
+}
+.group:hover{
+    box-shadow: rgb(12, 187, 211) 2px 2px 5px;
+}
+.groupTitle{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    padding-top: 15px;
+    color: white;
+    background-color: rgb(12, 187, 211);
+}
