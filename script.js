@@ -17,7 +17,7 @@ const requestOptions = {
     redirect: 'follow',
 };
 
-fetch("https://api-football-beta.p.rapidapi.com/teams?league=4&season=2020", requestOptions)
+fetch("https://api-football-beta.p.rapidapi.com/standings?league=4&season=2020", requestOptions)
     .then(response => {
         APIcalls = 100 - response.headers.get('x-ratelimit-requests-remaining')
         maxAPIcalls = response.headers.get('x-ratelimit-requests-limit')
@@ -25,30 +25,60 @@ fetch("https://api-football-beta.p.rapidapi.com/teams?league=4&season=2020", req
         return response.json()
     })
     .then(result => {
-        result.response.forEach(element => {
-            let groupNAme = Object.keys(groups).find(key => groups[key].includes(element.team.country));
-            if (groupNAme) {
-                let groupStageElt = document.getElementById(groupNAme);
+        result.response[0].league.standings.forEach(groups => {
+            groups.forEach(teams => {
+                let groupStageElt = document.getElementById(teams.group.replace(/ /g,''));  
 
+                //main element
+                let dataElt = document.createElement("div");
+                //left side
                 let teamElt = document.createElement("div");
                 let flagElt = document.createElement("img");
                 let countryElt = document.createElement("div");
+                //right side
+                let tableElt  = document.createElement("div");
+                let pointsElt  = document.createElement("div");
+                let playedElt  = document.createElement("div");
+                let winElt  = document.createElement("div");
+                let drawElt  = document.createElement("div");
+                let loseElt  = document.createElement("div");
+                let diffElt  = document.createElement("div");
 
+                //main element
+                dataElt.classList.add("data");
+                //left side
                 teamElt.classList.add("team");
                 flagElt.classList.add("flag");
                 countryElt.classList.add("country");
+                tableElt.classList.add("table");
+                flagElt.setAttribute("src", teams.team.logo)
+                flagElt.setAttribute("alt", teams.team.name + "'s Flag")
+                countryElt.textContent = teams.team.name;
+                //right side
+                pointsElt.textContent = teams.points;
+                playedElt.textContent = teams.all.played;
+                winElt.textContent = teams.all.win;
+                drawElt.textContent = teams.all.draw;
+                loseElt.textContent = teams.all.lose;
+                diffElt.textContent = teams.goalsDiff;
 
-                flagElt.setAttribute("src", element.team.logo)
-                flagElt.setAttribute("alt", element.team.country + "'s Flag")
-                countryElt.textContent = element.team.country;
-
+                //left side
                 teamElt.appendChild(flagElt);
                 teamElt.appendChild(countryElt);
-                groupStageElt.appendChild(teamElt);
-            }
+                groupStageElt.appendChild(dataElt);
+                dataElt.appendChild(teamElt);
+                //right side
+                tableElt.appendChild(pointsElt);
+                tableElt.appendChild(playedElt);
+                tableElt.appendChild(winElt);
+                tableElt.appendChild(drawElt);
+                tableElt.appendChild(loseElt);
+                tableElt.appendChild(diffElt);
+                //main div
+                dataElt.appendChild(tableElt);
+            })
         });
-
-        return console.log(result)
+return console.log(result)
     })
-    .catch(error => console.log('error', error));
+    .catch (error => console.log('error', error));
 
