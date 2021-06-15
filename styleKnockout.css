@@ -1,0 +1,28 @@
+#knockout{
+    display: flex;
+    justify-content:space-around;
+}
+.knockoutStages{
+    margin-top: 30px;
+    width: 25%;
+    height: 200px;
+    border: solid 1px red;
+}
+.game{
+    width: 160px;
+    height: 60px;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: rgb(250, 250, 250);
+    box-shadow: rgb(200, 200, 200) 2px 2px 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.location, .date{
+    margin-left: 10px;
+    font-size: 12px;
+}
+.fixture{
+    text-align: center;
+}
